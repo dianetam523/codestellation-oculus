@@ -1,3 +1,3 @@
 # codestellation-oculus
-Shirshak Sharma
+Shirshak Sharma, 
 Andrew Corp
