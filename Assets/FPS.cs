@@ -53,7 +53,7 @@ public class FPS : MonoBehaviour {
 		axis = new Vector3 (rotationX, rotationY, rotationZ);
 		
 		//Rotate
-		transform.Rotate (axis * Time.deltaTime * rotationSpeed);
+		transform.Rotate (axis * Time.deltaTime *3* rotationSpeed);
 		
 		
 		rr.velocity = oculusLeftEye.transform.forward * forwardSpeed;
