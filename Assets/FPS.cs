@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class FPS : MonoBehaviour {
 
 	public GameObject oculusLeftEye;
+
+	public JointOrientation j;
 	Rigidbody rr;
-	
 	public float forwardSpeed = 100f;
 	float rotationSpeed = 300f;
 	
@@ -25,7 +26,7 @@ public class FPS : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 		if (Input.GetKey (KeyCode.Space)) {
 			
 			start = true;
@@ -34,7 +35,9 @@ public class FPS : MonoBehaviour {
 		
 		if(start == true)
 		{
-			
+			if(j.getCalcX() > 0){
+				j.makePositive();
+			}
 			FlightMode();
 		}
 		
@@ -53,11 +56,8 @@ public class FPS : MonoBehaviour {
 		axis = new Vector3 (rotationX, rotationY, rotationZ);
 		
 		//Rotate
-		transform.Rotate (axis * Time.deltaTime *3* rotationSpeed);
-		
-		
-		rr.velocity = oculusLeftEye.transform.forward * forwardSpeed;
-		
-		
+		transform.Rotate (axis * Time.deltaTime*2 * rotationSpeed);
+		rr.velocity = oculusLeftEye.transform.forward * j.getV ();
+
 	}﻿
 }
