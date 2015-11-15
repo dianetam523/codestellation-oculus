@@ -4,6 +4,7 @@ using System.Collections;
 public class FPS : MonoBehaviour {
 
 	public GameObject oculusLeftEye;
+    JointOrientation j;
 	Rigidbody rr;
 	
 	public float forwardSpeed = 100f;
@@ -55,8 +56,7 @@ public class FPS : MonoBehaviour {
 		//Rotate
 		transform.Rotate (axis * Time.deltaTime * rotationSpeed);
 		
-		
-		rr.velocity = oculusLeftEye.transform.forward * forwardSpeed;
+		rr.velocity = oculusLeftEye.transform.forward * j.getV();
 		
 		
 	}﻿
